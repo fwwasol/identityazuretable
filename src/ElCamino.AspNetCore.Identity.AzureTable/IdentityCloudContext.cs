@@ -139,6 +139,14 @@ namespace ElCamino.AspNetCore.Identity.AzureTable
             }
         }
 
+        public bool UseUserId
+        {
+            get
+            {
+                return _config.UseUserId;
+            }
+        }
+
         private void ThrowIfDisposed()
         {
             if (this._disposed)

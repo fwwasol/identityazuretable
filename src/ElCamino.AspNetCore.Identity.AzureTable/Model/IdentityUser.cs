@@ -27,10 +27,10 @@ public class IdentityUser : IdentityUser<string, IdentityUserLogin, IdentityUser
     {
         public IdentityUser() { }
 
-        public IdentityUser(string userName)
+        public IdentityUser(string userId)
             : this()
         {
-            this.UserName = userName;
+            this.UserId = userId;
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ public class IdentityUser : IdentityUser<string, IdentityUserLogin, IdentityUser
         /// <returns></returns>
         public string PeekRowKey()
         {
-            return KeyHelper.GenerateRowKeyUserName(UserName);
+            return KeyHelper.GenerateRowKeyUser(UserId);
         }
 
         public double KeyVersion { get; set; }
@@ -82,6 +82,11 @@ public class IdentityUser : IdentityUser<string, IdentityUserLogin, IdentityUser
                 }
             }
         }
+
+
+        public override string UserId => UserName;
+
+
     }
 
     public class IdentityUser<TKey, TLogin, TRole, TClaim> : TableEntity
@@ -145,6 +150,8 @@ public class IdentityUser : IdentityUser<string, IdentityUserLogin, IdentityUser
 
         public virtual string UserName { get; set; }
 
-	}
+        public virtual string UserId { get; set; }
+
+    }
 
 }

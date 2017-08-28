@@ -21,7 +21,7 @@ namespace ElCamino.Web.Identity.AzureTable.Tests.Fixtures
         where TContext : IdentityCloudContext, new()
     {
 
-#region IDisposable Support
+        #region IDisposable Support
         protected bool disposedValue = false;
 
         protected virtual void Dispose(bool disposing)
@@ -44,7 +44,11 @@ namespace ElCamino.Web.Identity.AzureTable.Tests.Fixtures
         {
             Dispose(true);
         }
-#endregion
+        #endregion
+
+        public bool UseUserId { get; set; }
+
+        
 
         public IdentityConfiguration GetConfig()
         {
@@ -57,7 +61,8 @@ namespace ElCamino.Web.Identity.AzureTable.Tests.Fixtures
             {
                 StorageConnectionString = root["IdentityAzureTable:identityConfiguration:storageConnectionString"],
                 TablePrefix = root["IdentityAzureTable:identityConfiguration:tablePrefix"],
-                LocationMode = root["IdentityAzureTable:identityConfiguration:locationMode"]
+                LocationMode = root["IdentityAzureTable:identityConfiguration:locationMode"],
+                UseUserId = UseUserId
             };
 
             return idconfig;

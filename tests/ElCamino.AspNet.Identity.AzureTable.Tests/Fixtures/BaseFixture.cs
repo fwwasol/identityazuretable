@@ -45,6 +45,8 @@ namespace ElCamino.Web.Identity.AzureTable.Tests.Fixtures
 
         #endregion
 
+        public bool UseUserId { get; set; }
+
         public RoleStore<TRole> CreateRoleStore()
         {
             return new RoleStore<TRole>(new TContext());

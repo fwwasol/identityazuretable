@@ -20,4 +20,13 @@ namespace ElCamino.Web.Identity.AzureTable.Tests.ModelTests
 
         public string LastName { get; set; }
     }
+
+    public class ApplicationUserWithUserId : ApplicationUser
+    {
+
+        override public string UserId {
+            get;
+            set;
+        }
+    }
 }

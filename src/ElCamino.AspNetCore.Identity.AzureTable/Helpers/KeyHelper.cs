@@ -43,6 +43,11 @@ namespace ElCamino.AspNetCore.Identity.AzureTable.Helpers
             return baseHelper.GenerateRowKeyUserName(plainUserName);
         }
 
+        public static string GenerateRowKeyUser(string plainUserIdentifier)
+        {
+            return baseHelper.GenerateRowKeyUser(plainUserIdentifier);
+        }
+
         public static string GenerateRowKeyIdentityUserRole(string plainRoleName)
         {
             return baseHelper.GenerateRowKeyIdentityUserRole(plainRoleName);

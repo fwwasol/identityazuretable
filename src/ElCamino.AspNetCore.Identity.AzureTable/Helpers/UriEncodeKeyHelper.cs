@@ -35,10 +35,16 @@ namespace ElCamino.AspNetCore.Identity.AzureTable.Helpers
                     EscapeKey(plainEmail));
         }
 
-        public override string GenerateRowKeyUserName(string plainUserName)
+        public override string GenerateRowKeyUserName(string plainUserIdentifier)
         {
             return string.Format(Constants.RowKeyConstants.FormatterIdentityUserName,
-                    EscapeKey(plainUserName));
+                EscapeKey(plainUserIdentifier));
+        }
+
+        public override string GenerateRowKeyUser(string plainUserIdentifier)
+        {
+            return string.Format(Constants.RowKeyConstants.FormatterIdentityUser,
+                    EscapeKey(plainUserIdentifier));
         }
 
         public override string GenerateRowKeyIdentityUserRole(string plainRoleName)
